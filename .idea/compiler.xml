@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="module-resource" />
+        <module name="module-comment" />
+        <module name="module-user" />
+        <module name="module-topic" />
+        <module name="api-gateway" />
+        <module name="api-upload" />
+        <module name="common-config" />
+        <module name="module-tag" />
+        <module name="module-chat" />
+        <module name="common-utils" />
+        <module name="common-bean" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Brownie2.0.0" target="1.8" />
+      <module name="Brownie2.0.3" target="1.8" />
+      <module name="cloud-gateway" target="1.8" />
+      <module name="module-upload" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Brownie" options="" />
+      <module name="Infrastructure" options="" />
+      <module name="api-gateway" options="" />
+      <module name="common" options="" />
+      <module name="common-utils" options="" />
+      <module name="module-comment" options="" />
+      <module name="module-resource" options="" />
+      <module name="module-topic" options="" />
+      <module name="module-user" options="" />
+      <module name="service" options="" />
+    </option>
+  </component>
+</project>

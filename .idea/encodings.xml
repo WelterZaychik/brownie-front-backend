@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Infrastructure/api-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Infrastructure/api-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Infrastructure/api-upload/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Infrastructure/api-upload/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-bean/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-bean/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-config/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-config/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-utils/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/common-utils/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/module-chat/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/module-chat/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/module-comment/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/module-comment/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/module-resource/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/module-resource/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/module-tag/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/module-tag/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/module-topic/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/module-topic/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/module-user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service/module-user/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

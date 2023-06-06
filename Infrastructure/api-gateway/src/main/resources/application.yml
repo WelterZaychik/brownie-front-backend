@@ -1,0 +1,45 @@
+server:
+  port: 7788
+spring:
+  application:
+    name: api-gateway
+  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+          - id: service-user
+            uri: http://localhost:8888
+            predicates:
+              - Path=/user/**
+
+          - id: service-topic
+            uri: http://localhost:8889
+            predicates:
+              - Path=/topic/**
+
+          - id: service-resource
+            uri: http://localhost:8890
+            predicates:
+              - Path=/resource/**
+
+          - id: service-comment
+            uri: http://localhost:8891
+            predicates:
+              - Path=/comments/**
+
+          - id: api-upload
+            uri: http://localhost:8892
+            predicates:
+              - Path=/upload/**
+
+          - id: service-tag
+            uri: http://localhost:8893
+            predicates:
+              - Path=/tag/**
+
+

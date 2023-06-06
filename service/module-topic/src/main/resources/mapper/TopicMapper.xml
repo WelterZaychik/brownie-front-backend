@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.Brownie.mapper.TopicMapper">
+
+    <resultMap id="BaseResultMap" type="xyz.Brownie.bean.entity.Topic">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="createUserId" column="create_user_id" jdbcType="BIGINT"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="plate" column="plate" jdbcType="INTEGER"/>
+        <result property="numberOfLikes" column="number_of_likes" jdbcType="BIGINT"/>
+        <result property="numberOfViews" column="number_of_views" jdbcType="BIGINT"/>
+        <result property="comments" column="comments" jdbcType="BIGINT"/>
+        <result property="synopsis" column="synopsis" jdbcType="VARCHAR"/>
+        <result property="isTop" column="is_top" jdbcType="INTEGER"/>
+        <result property="isDelete" column="is_delete" jdbcType="INTEGER"/>
+        <result property="isVideo" column="is_video" jdbcType="INTEGER"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="coverImage" column="cover_image" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,create_user_id,title,
+        content,create_time,plate,
+        number_of_likes,number_of_views,comments,synopsis,
+        is_top,is_delete,is_video,
+        update_time,cover_image
+    </sql>
+
+    <select id="searchTopic" resultMap="BaseResultMap">
+        select a.*
+        from
+        topic as a
+        <if test="tagId != null and tagId != ''">
+            join
+            (select topic_id from  topic_tag where tag_id = #{tagId}) as b
+            on a.id = b.topic_id
+        </if>
+        <where>
+            <if test="startTime != null and endTime != null and startTime != '' and endTime != ''">
+                and a.update_time between #{startTime} and #{endTime}
+            </if>
+            <if test="isVideo != null and isVideo != ''">
+                and a.is_video = #{isVideo}
+            </if>
+            <if test="keyWord != null and keyWord != ''">
+                and a.title like concat('%',#{keyWord},'%')
+                or a.synopsis like concat('%',#{keyWord},'%')
+            </if>
+        </where>
+        <if test="isTime == 1">
+            order by create_time desc
+        </if>
+        <if test="isTime == 0 or isTime == null or isTime == ''">
+            order by number_of_views desc
+        </if>
+        <if test="current == 0">
+            limit 0,4
+        </if>
+        <if test="current != null and current != ''">
+            limit #{current} ,4
+        </if>
+    </select>
+
+    <update id="updatelikes">
+        update topic
+        set number_of_likes = number_of_likes + 1
+        where id = #{id};
+    </update>
+    <update id="updateviews">
+        update topic
+        set number_of_views = number_of_views + 1
+        where id = #{id};
+    </update>
+    <select id="pagination" resultMap="BaseResultMap">
+        select * from topic order by number_of_views desc
+    </select>
+
+    <!--<select id="selectPages" resultType="xyz.Brownie.bean.entity.Topic">-->
+    <!--    select * from topic order by is_top desc,create_time desc-->
+    <!--</select>-->
+
+</mapper>

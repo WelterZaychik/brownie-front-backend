@@ -1,0 +1,24 @@
+server:
+  port: 8892
+
+spring:
+  application:
+    name: api-upload
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  servlet:
+    multipart:
+      # 最大上传单个文件大小，默认1m
+      max-file-size: 1024MB
+      # 最大置总上传的数据大小：默认10M
+      max-request-size: 1024MB
+
+aliyun:
+  oss:
+    file:
+      endPoint: oss-cn-shenzhen.aliyuncs.com
+      keyId: 用自己的 AccessKey
+      keySecret: 用自己的 AccessKey
+      bucketName: 用自己的 oss仓库名

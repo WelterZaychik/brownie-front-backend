@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.Brownie.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="xyz.Brownie.bean.entity.User">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="account" column="account" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="synopsis" column="synopsis" jdbcType="VARCHAR"/>
+        <result property="email" column="email" jdbcType="VARCHAR"/>
+        <result property="phone" column="phone" jdbcType="VARCHAR"/>
+        <result property="avatar" column="avatar" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="isDelete" column="is_delete" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,account,password,
+        name,synopsis,email,
+        phone,avatar,create_time,
+        update_time,is_delete
+    </sql>
+
+    <select id="LikeViewNum" resultType="xyz.Brownie.bean.dto.LVNumDTO">
+        select create_user_id as id,sum(number_of_views) as views,sum(number_of_likes) as likes
+        from
+             topic
+        where create_user_id = #{id}
+    </select>
+    <select id="selectUser" resultType="xyz.Brownie.bean.entity.User">
+        select name,email,phone,synopsis from user where id = #{id}
+    </select>
+
+</mapper>
